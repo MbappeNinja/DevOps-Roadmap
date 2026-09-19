@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive DevOps Learning Roadmap — master Linux, Git, Docker, CI/CD, Kubernetes, Cloud, IaC, and Monitoring step by step.">
+    <title>DevOps Mastery — Interactive Learning Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">⚙️</span>
+                <h1>DevOps <span class="gradient-text">Mastery</span></h1>
+            </div>
+            <div class="progress-summary" id="progressSummary">
+                <div class="progress-ring" id="progressRing">
+                    <svg viewBox="0 0 40 40">
+                        <circle class="ring-bg" cx="20" cy="20" r="17" />
+                        <circle class="ring-fill" cx="20" cy="20" r="17" id="ringFill" />
+                    </svg>
+                    <span class="ring-text" id="ringText">0%</span>
+                </div>
+                <span class="progress-label">Complete</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🚀 Your DevOps Journey Starts Here</span>
+            <h2 class="hero-title">Learn DevOps<br><span class="gradient-text">Step by Step</span></h2>
+            <p class="hero-subtitle">From Linux basics to Kubernetes orchestration — an interactive roadmap to guide your learning. Track your progress, explore concepts, and master DevOps.</p>
+            <div class="hero-stats" id="heroStats">
+                <div class="stat-card">
+                    <span class="stat-number" id="statTopics">8</span>
+                    <span class="stat-label">Topics</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="statLessons">40+</span>
+                    <span class="stat-label">Concepts</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="statCompleted">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+            <a href="#roadmap" class="hero-cta">
+                <span>Explore Roadmap</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14m0 0l6-6m-6 6l-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="roadmap" id="roadmap">
+        <div class="roadmap-header">
+            <h2 class="section-title">The <span class="gradient-text">Roadmap</span></h2>
+            <p class="section-subtitle">Click any topic to expand it. Check off concepts as you learn them.</p>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All Topics</button>
+                <button class="filter-btn" data-filter="completed">✅ Completed</button>
+                <button class="filter-btn" data-filter="in-progress">🔄 In Progress</button>
+                <button class="filter-btn" data-filter="not-started">⬜ Not Started</button>
+            </div>
+        </div>
+
+        <div class="roadmap-track">
+            <div class="track-line"></div>
+
+            <!-- Topic 1: Linux & Shell -->
+            <div class="topic-node" data-topic="linux" id="topic-linux">
+                <div class="node-connector">
+                    <div class="node-dot"><span>1</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('linux')">
+                        <div class="card-title-area">
+                            <span class="card-icon">🐧</span>
+                            <div>
+                                <h3>Linux & Shell Scripting</h3>
+                                <span class="card-tagline">The foundation of DevOps</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-linux">0/6</span>
+                            <span class="card-chevron" id="chevron-linux">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-linux">
+                        <p class="card-description">Linux is the backbone of DevOps. Almost all servers, containers, and cloud instances run Linux. You need to be comfortable navigating the terminal and writing shell scripts.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="linux-filesystem">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-filesystem')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>File System & Navigation</h4>
+                                    <p>Learn <code>ls</code>, <code>cd</code>, <code>pwd</code>, <code>mkdir</code>, <code>rm</code>, <code>cp</code>, <code>mv</code>. Understand the Linux directory structure (<code>/etc</code>, <code>/var</code>, <code>/home</code>, <code>/usr</code>).</p>
+                                    <div class="code-block"><pre><code># List files with details
+ls -la /var/log/
+
+# Create nested directories
+mkdir -p projects/devops/scripts
+
+# Find files by name
+find / -name "*.conf" -type f 2>/dev/null</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="linux-permissions">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-permissions')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Users, Groups & Permissions</h4>
+                                    <p>Understand <code>chmod</code>, <code>chown</code>, <code>chgrp</code>. Learn about file permission bits (read, write, execute) and octal notation (755, 644).</p>
+                                    <div class="code-block"><pre><code># Change file permissions
+chmod 755 script.sh     # rwxr-xr-x
+chmod u+x deploy.sh     # Add execute for owner
+
+# Change ownership
+chown www-data:www-data /var/www/html
+
+# View current user & groups
+whoami && groups</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="linux-processes">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-processes')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Process Management</h4>
+                                    <p>Manage running processes with <code>ps</code>, <code>top</code>, <code>htop</code>, <code>kill</code>, <code>systemctl</code>. Understand foreground vs background processes.</p>
+                                    <div class="code-block"><pre><code># View running processes
+ps aux | grep nginx
+
+# Monitor system resources
+top -o %MEM
+
+# Manage services with systemd
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="linux-networking">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-networking')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Networking Basics</h4>
+                                    <p>Understand IP addresses, ports, DNS. Use <code>curl</code>, <code>wget</code>, <code>netstat</code>, <code>ss</code>, <code>ping</code>, <code>traceroute</code>, <code>nslookup</code>.</p>
+                                    <div class="code-block"><pre><code># Check open ports
+ss -tulnp
+
+# Test connectivity
+ping -c 4 google.com
+
+# Make HTTP requests
+curl -s https://api.github.com/users/octocat | jq .
+
+# DNS lookup
+nslookup example.com</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="linux-shell-scripting">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-shell-scripting')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Shell Scripting (Bash)</h4>
+                                    <p>Write automated scripts with variables, loops, conditionals, functions, and piping. This is essential for automating repetitive tasks.</p>
+                                    <div class="code-block"><pre><code>#!/bin/bash
+# Automated backup script
+
+BACKUP_DIR="/backups/$(date +%Y%m%d)"
+mkdir -p "$BACKUP_DIR"
+
+for dir in /var/www/*/; do
+    site=$(basename "$dir")
+    echo "Backing up $site..."
+    tar -czf "$BACKUP_DIR/${site}.tar.gz" "$dir"
+done
+
+echo "✅ Backup complete! Files in $BACKUP_DIR"</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="linux-text-processing">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('linux', 'linux-text-processing')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Text Processing & Piping</h4>
+                                    <p>Master <code>grep</code>, <code>sed</code>, <code>awk</code>, <code>sort</code>, <code>uniq</code>, <code>cut</code>, <code>wc</code>. Learn to chain commands with pipes (<code>|</code>).</p>
+                                    <div class="code-block"><pre><code># Find errors in logs
+grep -i "error" /var/log/syslog | tail -20
+
+# Count unique IPs in access log
+awk '{print $1}' access.log | sort | uniq -c | sort -rn | head
+
+# Replace text in files
+sed -i 's/old-server/new-server/g' config.yml</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 2: Git -->
+            <div class="topic-node" data-topic="git" id="topic-git">
+                <div class="node-connector">
+                    <div class="node-dot"><span>2</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('git')">
+                        <div class="card-title-area">
+                            <span class="card-icon">🔀</span>
+                            <div>
+                                <h3>Git & Version Control</h3>
+                                <span class="card-tagline">Collaborate and track changes</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-git">0/5</span>
+                            <span class="card-chevron" id="chevron-git">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-git">
+                        <p class="card-description">Git is the universal version control system. Every DevOps workflow starts with code, and Git is how teams collaborate, review, and track changes.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="git-basics">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('git', 'git-basics')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Git Fundamentals</h4>
+                                    <p>Understand repositories, commits, staging area, and the basic workflow: <code>init</code> → <code>add</code> → <code>commit</code> → <code>push</code>.</p>
+                                    <div class="code-block"><pre><code># Initialize and first commit
+git init
+git add .
+git commit -m "Initial commit"
+
+# Connect to remote
+git remote add origin https://github.com/user/repo.git
+git push -u origin main
+
+# Check status and history
+git status
+git log --oneline --graph</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="git-branching">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('git', 'git-branching')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Branching & Merging</h4>
+                                    <p>Create feature branches, merge changes, resolve conflicts. Understand the difference between <code>merge</code> and <code>rebase</code>.</p>
+                                    <div class="code-block"><pre><code># Create and switch to feature branch
+git checkout -b feature/add-login
+
+# Make changes and commit
+git add . && git commit -m "Add login page"
+
+# Merge back to main
+git checkout main
+git merge feature/add-login
+
+# Delete merged branch
+git branch -d feature/add-login</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="git-workflows">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('git', 'git-workflows')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Git Workflows</h4>
+                                    <p>Learn popular workflows: <strong>Git Flow</strong> (develop/release branches), <strong>GitHub Flow</strong> (feature branches + PRs), and <strong>Trunk-Based Development</strong>.</p>
+                                    <div class="code-block"><pre><code># GitHub Flow (most common)
+# 1. Create branch from main
+git checkout -b feature/user-auth
+
+# 2. Push and create Pull Request
+git push origin feature/user-auth
+# → Open PR on GitHub for code review
+
+# 3. After approval, merge PR
+# 4. Delete branch, deploy from main</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="git-advanced">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('git', 'git-advanced')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Advanced Git</h4>
+                                    <p>Master <code>stash</code>, <code>cherry-pick</code>, <code>rebase -i</code>, <code>bisect</code>, <code>reflog</code>. Recover from mistakes and rewrite history safely.</p>
+                                    <div class="code-block"><pre><code># Stash changes temporarily
+git stash && git stash pop
+
+# Interactive rebase (squash commits)
+git rebase -i HEAD~3
+
+# Find which commit introduced a bug
+git bisect start
+git bisect bad HEAD
+git bisect good v1.0.0
+
+# Recover lost commits
+git reflog</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="git-hooks">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('git', 'git-hooks')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Git Hooks & Automation</h4>
+                                    <p>Automate tasks with Git hooks: pre-commit linting, commit message validation, pre-push testing. Tools like <strong>Husky</strong> make this easy.</p>
+                                    <div class="code-block"><pre><code># .git/hooks/pre-commit
+#!/bin/bash
+echo "Running linter..."
+npm run lint
+if [ $? -ne 0 ]; then
+    echo "❌ Lint failed. Fix errors before committing."
+    exit 1
+fi
+echo "✅ Lint passed!"</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 3: Docker -->
+            <div class="topic-node" data-topic="docker" id="topic-docker">
+                <div class="node-connector">
+                    <div class="node-dot"><span>3</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('docker')">
+                        <div class="card-title-area">
+                            <span class="card-icon">🐳</span>
+                            <div>
+                                <h3>Docker & Containers</h3>
+                                <span class="card-tagline">Package apps consistently</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-docker">0/6</span>
+                            <span class="card-chevron" id="chevron-docker">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-docker">
+                        <p class="card-description">Docker revolutionized how we build, ship, and run applications. Containers package your app with all its dependencies so it runs identically everywhere — "it works on my machine" is no longer an excuse!</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="docker-basics">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-basics')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Docker Fundamentals</h4>
+                                    <p>Understand images vs containers, Docker Hub, pulling/running images. A <strong>container</strong> is a running instance of an <strong>image</strong>.</p>
+                                    <div class="code-block"><pre><code># Pull and run an image
+docker pull nginx:latest
+docker run -d -p 8080:80 --name web nginx
+
+# List running containers
+docker ps
+
+# View logs
+docker logs web
+
+# Enter a running container
+docker exec -it web bash
+
+# Stop and remove
+docker stop web && docker rm web</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="docker-dockerfile">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-dockerfile')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Writing Dockerfiles</h4>
+                                    <p>Create custom images with a Dockerfile. Learn <code>FROM</code>, <code>COPY</code>, <code>RUN</code>, <code>EXPOSE</code>, <code>CMD</code>, and multi-stage builds for smaller images.</p>
+                                    <div class="code-block"><pre><code># Multi-stage Dockerfile for a Node.js app
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+EXPOSE 3000
+CMD ["node", "dist/server.js"]</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="docker-compose">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-compose')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Docker Compose</h4>
+                                    <p>Define multi-container applications in a single YAML file. Perfect for local development with databases, caches, and app servers.</p>
+                                    <div class="code-block"><pre><code># docker-compose.yml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=postgres
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+
+volumes:
+  pgdata:</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="docker-volumes">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-volumes')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Volumes & Networking</h4>
+                                    <p>Persist data with volumes and connect containers with Docker networks. Understand bridge, host, and overlay network modes.</p>
+                                    <div class="code-block"><pre><code># Create and use a volume
+docker volume create mydata
+docker run -v mydata:/data nginx
+
+# Create a custom network
+docker network create mynet
+docker run --network mynet --name api myapi
+docker run --network mynet --name db postgres
+
+# Containers on same network can reach
+# each other by name: http://api:3000</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="docker-registry">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-registry')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Image Registry & Tags</h4>
+                                    <p>Push images to Docker Hub, GitHub Container Registry (GHCR), or private registries. Tag images for versioning.</p>
+                                    <div class="code-block"><pre><code># Build and tag an image
+docker build -t myapp:1.0.0 .
+docker tag myapp:1.0.0 ghcr.io/user/myapp:1.0.0
+
+# Push to registry
+docker login ghcr.io
+docker push ghcr.io/user/myapp:1.0.0
+
+# Pull on production server
+docker pull ghcr.io/user/myapp:1.0.0</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="docker-security">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('docker', 'docker-security')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Docker Best Practices</h4>
+                                    <p>Use non-root users, minimize image size, scan for vulnerabilities, use <code>.dockerignore</code>, and avoid storing secrets in images.</p>
+                                    <div class="code-block"><pre><code># Security best practices in Dockerfile
+FROM node:20-alpine
+
+# Don't run as root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+WORKDIR /app
+COPY --chown=appuser:appgroup . .
+RUN npm ci --production
+
+USER appuser
+CMD ["node", "server.js"]
+
+# Scan for vulnerabilities
+# docker scout cves myapp:latest</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 4: CI/CD -->
+            <div class="topic-node" data-topic="cicd" id="topic-cicd">
+                <div class="node-connector">
+                    <div class="node-dot"><span>4</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('cicd')">
+                        <div class="card-title-area">
+                            <span class="card-icon">🔄</span>
+                            <div>
+                                <h3>CI/CD Pipelines</h3>
+                                <span class="card-tagline">Automate build, test & deploy</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-cicd">0/5</span>
+                            <span class="card-chevron" id="chevron-cicd">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-cicd">
+                        <p class="card-description">CI/CD (Continuous Integration / Continuous Delivery) automates the process of testing and deploying code. Every push triggers automated builds, tests, and deployments — catching bugs early and shipping faster.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="cicd-concepts">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cicd', 'cicd-concepts')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>CI/CD Concepts</h4>
+                                    <p><strong>CI</strong> = automatically build & test on every commit. <strong>CD</strong> = automatically deploy passing builds. Together they create a fast, reliable release pipeline.</p>
+                                    <div class="code-block"><pre><code>Pipeline stages:
+
+1. 📥 Source    → Code pushed to Git
+2. 🔨 Build     → Compile / bundle the app
+3. 🧪 Test      → Run unit, integration, e2e tests
+4. 📦 Package   → Build Docker image / artifact
+5. 🚀 Deploy    → Push to staging → production
+
+Key metrics:
+- Deployment frequency
+- Lead time for changes
+- Mean time to recovery (MTTR)
+- Change failure rate</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cicd-github-actions">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cicd', 'cicd-github-actions')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>GitHub Actions</h4>
+                                    <p>The most popular CI/CD platform for GitHub repos. Define workflows in YAML files under <code>.github/workflows/</code>.</p>
+                                    <div class="code-block"><pre><code># .github/workflows/ci.yml
+name: CI Pipeline
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Deploying to production..."</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cicd-jenkins">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cicd', 'cicd-jenkins')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Jenkins</h4>
+                                    <p>A self-hosted, open-source automation server. Highly extensible with plugins. Uses <code>Jenkinsfile</code> for pipeline-as-code.</p>
+                                    <div class="code-block"><pre><code>// Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm ci'
+                sh 'npm run build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        stage('Deploy') {
+            when { branch 'main' }
+            steps {
+                sh './deploy.sh'
+            }
+        }
+    }
+    post {
+        failure {
+            slackSend "Build failed! 🔥"
+        }
+    }
+}</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cicd-testing">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cicd', 'cicd-testing')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Automated Testing</h4>
+                                    <p>Integrate testing into your pipeline: <strong>Unit tests</strong> (fast, isolated), <strong>Integration tests</strong> (component interactions), <strong>E2E tests</strong> (full user flows).</p>
+                                    <div class="code-block"><pre><code># Testing pyramid in CI:
+
+    /  E2E Tests  \    ← Slow, few
+   / Integration   \   ← Medium
+  /   Unit Tests    \  ← Fast, many
+
+# Run in parallel for speed:
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres: ...
+    steps: [...]</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cicd-artifacts">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cicd', 'cicd-artifacts')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Artifacts & Environments</h4>
+                                    <p>Manage build artifacts, environment variables, secrets, and deployment stages (dev → staging → production).</p>
+                                    <div class="code-block"><pre><code># Using secrets in GitHub Actions
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  API_KEY: ${{ secrets.API_KEY }}
+
+# Multi-environment deployment
+deploy-staging:
+  environment: staging
+  steps:
+    - run: deploy --env staging
+
+deploy-production:
+  environment: production
+  needs: deploy-staging
+  steps:
+    - run: deploy --env production</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 5: Kubernetes -->
+            <div class="topic-node" data-topic="k8s" id="topic-k8s">
+                <div class="node-connector">
+                    <div class="node-dot"><span>5</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('k8s')">
+                        <div class="card-title-area">
+                            <span class="card-icon">☸️</span>
+                            <div>
+                                <h3>Kubernetes</h3>
+                                <span class="card-tagline">Orchestrate containers at scale</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-k8s">0/5</span>
+                            <span class="card-chevron" id="chevron-k8s">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-k8s">
+                        <p class="card-description">Kubernetes (K8s) is the industry standard for container orchestration. It automatically manages deployment, scaling, and networking of containerized applications across clusters of machines.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="k8s-architecture">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('k8s', 'k8s-architecture')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>K8s Architecture</h4>
+                                    <p>Understand the control plane (API server, etcd, scheduler, controller manager) and worker nodes (kubelet, kube-proxy, container runtime).</p>
+                                    <div class="code-block"><pre><code>K8s Cluster Architecture:
+
+┌─────── Control Plane ───────┐
+│  API Server ← kubectl       │
+│  etcd (state store)          │
+│  Scheduler (place pods)      │
+│  Controller Manager          │
+└──────────────────────────────┘
+         │
+┌────── Worker Nodes ─────────┐
+│  kubelet → runs pods         │
+│  kube-proxy → networking     │
+│  Container Runtime (containerd)
+└──────────────────────────────┘</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="k8s-pods">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('k8s', 'k8s-pods')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Pods, Deployments & Services</h4>
+                                    <p><strong>Pod</strong> = smallest unit (one or more containers). <strong>Deployment</strong> = manages pod replicas. <strong>Service</strong> = stable network endpoint.</p>
+                                    <div class="code-block"><pre><code># deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: myapp:1.0.0
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: web
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="k8s-kubectl">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('k8s', 'k8s-kubectl')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>kubectl Commands</h4>
+                                    <p>The CLI tool to interact with your cluster. Apply manifests, check status, debug issues, and manage resources.</p>
+                                    <div class="code-block"><pre><code># Apply a manifest
+kubectl apply -f deployment.yaml
+
+# View resources
+kubectl get pods -o wide
+kubectl get services
+kubectl get deployments
+
+# Debug a pod
+kubectl describe pod web-app-xxxx
+kubectl logs web-app-xxxx -f
+kubectl exec -it web-app-xxxx -- sh
+
+# Scale up/down
+kubectl scale deployment web-app --replicas=5</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="k8s-config">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('k8s', 'k8s-config')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>ConfigMaps, Secrets & Ingress</h4>
+                                    <p>Manage configuration and secrets separately from code. Use Ingress for HTTP routing and TLS termination.</p>
+                                    <div class="code-block"><pre><code># ConfigMap for environment config
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  DB_HOST: "postgres-service"
+  LOG_LEVEL: "info"
+---
+# Secret for sensitive data
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secrets
+type: Opaque
+data:
+  DB_PASSWORD: cGFzc3dvcmQxMjM=  # base64
+---
+# Ingress for HTTP routing
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-ingress
+spec:
+  rules:
+  - host: myapp.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-service
+            port:
+              number: 80</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="k8s-helm">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('k8s', 'k8s-helm')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Helm & Package Management</h4>
+                                    <p>Helm is the "package manager" for Kubernetes. Use charts to template and deploy complex applications with a single command.</p>
+                                    <div class="code-block"><pre><code># Install a chart from a repository
+helm repo add bitnami https://charts.bitnami.com
+helm install my-redis bitnami/redis
+
+# Create your own chart
+helm create my-chart
+
+# Install with custom values
+helm install myapp ./my-chart \
+  --set replicas=3 \
+  --set image.tag=1.0.0
+
+# Upgrade a release
+helm upgrade myapp ./my-chart -f production.yaml
+
+# Rollback if something goes wrong
+helm rollback myapp 1</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 6: Cloud -->
+            <div class="topic-node" data-topic="cloud" id="topic-cloud">
+                <div class="node-connector">
+                    <div class="node-dot"><span>6</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('cloud')">
+                        <div class="card-title-area">
+                            <span class="card-icon">☁️</span>
+                            <div>
+                                <h3>Cloud Platforms</h3>
+                                <span class="card-tagline">AWS, GCP & Azure essentials</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-cloud">0/5</span>
+                            <span class="card-chevron" id="chevron-cloud">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-cloud">
+                        <p class="card-description">Cloud computing lets you rent servers, databases, and services on-demand instead of buying hardware. The "big three" are AWS, Google Cloud (GCP), and Azure — they all offer similar core services.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="cloud-basics">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cloud', 'cloud-basics')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Cloud Fundamentals</h4>
+                                    <p>Understand IaaS vs PaaS vs SaaS, regions & availability zones, and the shared responsibility model.</p>
+                                    <div class="code-block"><pre><code>Cloud Service Models:
+
+IaaS (Infrastructure as a Service)
+→ You manage: OS, runtime, app
+→ Example: EC2, Compute Engine, Azure VMs
+
+PaaS (Platform as a Service)
+→ You manage: App code only
+→ Example: App Engine, Elastic Beanstalk, Azure App Service
+
+SaaS (Software as a Service)
+→ You manage: Nothing (just use it)
+→ Example: Gmail, Slack, Salesforce
+
+Serverless (FaaS)
+→ You manage: Individual functions
+→ Example: Lambda, Cloud Functions, Azure Functions</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cloud-compute">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cloud', 'cloud-compute')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Compute Services</h4>
+                                    <p>Virtual machines (EC2/GCE), containers (ECS/GKE/AKS), and serverless functions (Lambda/Cloud Functions).</p>
+                                    <div class="code-block"><pre><code># AWS - Launch an EC2 instance
+aws ec2 run-instances \
+  --image-id ami-0abcdef1234 \
+  --instance-type t3.micro \
+  --key-name my-key
+
+# GCP - Create a Compute Engine VM
+gcloud compute instances create my-vm \
+  --zone=us-central1-a \
+  --machine-type=e2-micro
+
+# AWS Lambda function
+aws lambda create-function \
+  --function-name hello \
+  --runtime nodejs20.x \
+  --handler index.handler</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cloud-storage">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cloud', 'cloud-storage')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Storage & Databases</h4>
+                                    <p>Object storage (S3/GCS), block storage (EBS), managed databases (RDS/Cloud SQL), and NoSQL (DynamoDB/Firestore).</p>
+                                    <div class="code-block"><pre><code># AWS S3 - Upload files
+aws s3 cp ./backup.tar.gz s3://my-bucket/backups/
+aws s3 sync ./dist s3://my-website --delete
+
+# Create an RDS database
+aws rds create-db-instance \
+  --db-instance-identifier mydb \
+  --engine postgres \
+  --master-username admin \
+  --master-user-password secret123
+
+# GCP Cloud Storage
+gsutil cp ./data.csv gs://my-bucket/</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cloud-networking">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cloud', 'cloud-networking')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Cloud Networking</h4>
+                                    <p>VPCs, subnets, security groups, load balancers, DNS (Route 53 / Cloud DNS), and CDNs (CloudFront / Cloud CDN).</p>
+                                    <div class="code-block"><pre><code># AWS VPC & Security Group
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+
+aws ec2 create-security-group \
+  --group-name web-sg \
+  --description "Allow HTTP/HTTPS"
+
+aws ec2 authorize-security-group-ingress \
+  --group-name web-sg \
+  --protocol tcp \
+  --port 443 \
+  --cidr 0.0.0.0/0
+
+# Create a load balancer
+aws elbv2 create-load-balancer \
+  --name my-alb \
+  --type application</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="cloud-iam">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('cloud', 'cloud-iam')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>IAM & Security</h4>
+                                    <p>Identity & Access Management — control who can access what. Follow the principle of <strong>least privilege</strong>.</p>
+                                    <div class="code-block"><pre><code># AWS IAM - Create a policy
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::my-bucket/*"
+    }
+  ]
+}
+
+# Best practices:
+# ✅ Use IAM roles, not access keys
+# ✅ Enable MFA for all users
+# ✅ Rotate credentials regularly
+# ✅ Use least privilege principle</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 7: IaC -->
+            <div class="topic-node" data-topic="iac" id="topic-iac">
+                <div class="node-connector">
+                    <div class="node-dot"><span>7</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('iac')">
+                        <div class="card-title-area">
+                            <span class="card-icon">🏗️</span>
+                            <div>
+                                <h3>Infrastructure as Code</h3>
+                                <span class="card-tagline">Terraform, Ansible & more</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-iac">0/5</span>
+                            <span class="card-chevron" id="chevron-iac">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-iac">
+                        <p class="card-description">Infrastructure as Code (IaC) means managing servers, networks, and cloud resources through code files instead of clicking around in web consoles. This makes infrastructure reproducible, version-controlled, and reviewable.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="iac-concepts">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('iac', 'iac-concepts')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>IaC Concepts</h4>
+                                    <p>Understand <strong>declarative</strong> (describe desired state) vs <strong>imperative</strong> (describe steps). Key benefits: consistency, speed, auditability.</p>
+                                    <div class="code-block"><pre><code>IaC Tools Comparison:
+
+Terraform  → Declarative, multi-cloud, HCL
+Ansible    → Imperative/Declarative, agentless, YAML
+Pulumi     → Declarative, uses real languages (TS/Python)
+CloudFormation → AWS-only, declarative, JSON/YAML
+
+Choose based on:
+- Multi-cloud? → Terraform or Pulumi
+- Config management? → Ansible
+- AWS only? → CloudFormation or Terraform
+- Prefer real code? → Pulumi</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="iac-terraform">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('iac', 'iac-terraform')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Terraform</h4>
+                                    <p>The most popular IaC tool. Write HCL (HashiCorp Configuration Language) to define cloud resources. Supports AWS, GCP, Azure, and 1000+ providers.</p>
+                                    <div class="code-block"><pre><code># main.tf - Deploy a web server on AWS
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-0abcdef1234"
+  instance_type = "t3.micro"
+  
+  tags = {
+    Name = "web-server"
+    Env  = "production"
+  }
+}
+
+resource "aws_s3_bucket" "assets" {
+  bucket = "my-app-assets"
+}
+
+# Commands:
+# terraform init      ← download providers
+# terraform plan      ← preview changes
+# terraform apply     ← create resources
+# terraform destroy   ← tear down everything</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="iac-ansible">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('iac', 'iac-ansible')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Ansible</h4>
+                                    <p>Agentless configuration management via SSH. Write YAML playbooks to configure servers, install software, and manage applications.</p>
+                                    <div class="code-block"><pre><code># playbook.yml - Configure a web server
+---
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: Copy website files
+      copy:
+        src: ./dist/
+        dest: /var/www/html/
+
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Open firewall port
+      ufw:
+        rule: allow
+        port: '80'
+
+# Run: ansible-playbook -i inventory playbook.yml</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="iac-state">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('iac', 'iac-state')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>State Management</h4>
+                                    <p>Terraform tracks resource state in a state file. Store it remotely (S3, GCS) for team collaboration and use locking to prevent conflicts.</p>
+                                    <div class="code-block"><pre><code># Remote state backend (S3 + DynamoDB)
+terraform {
+  backend "s3" {
+    bucket         = "my-terraform-state"
+    key            = "prod/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
+  }
+}
+
+# State commands:
+# terraform state list    ← show all resources
+# terraform state show    ← inspect a resource
+# terraform import        ← import existing infra
+# terraform state mv      ← rename resources</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="iac-modules">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('iac', 'iac-modules')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Modules & Best Practices</h4>
+                                    <p>Organize Terraform code into reusable modules. Use workspaces for environments, and follow a consistent directory structure.</p>
+                                    <div class="code-block"><pre><code># Project structure
+├── modules/
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── web-server/
+│       ├── main.tf
+│       └── variables.tf
+├── environments/
+│   ├── dev/
+│   │   └── main.tf
+│   └── prod/
+│       └── main.tf
+
+# Using a module
+module "vpc" {
+  source = "./modules/vpc"
+  cidr   = "10.0.0.0/16"
+  env    = "production"
+}</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic 8: Monitoring -->
+            <div class="topic-node" data-topic="monitoring" id="topic-monitoring">
+                <div class="node-connector">
+                    <div class="node-dot"><span>8</span></div>
+                </div>
+                <div class="topic-card">
+                    <div class="card-header" onclick="toggleTopic('monitoring')">
+                        <div class="card-title-area">
+                            <span class="card-icon">📊</span>
+                            <div>
+                                <h3>Monitoring & Logging</h3>
+                                <span class="card-tagline">Observe, alert & debug</span>
+                            </div>
+                        </div>
+                        <div class="card-meta">
+                            <span class="card-progress" id="progress-monitoring">0/5</span>
+                            <span class="card-chevron" id="chevron-monitoring">▼</span>
+                        </div>
+                    </div>
+                    <div class="card-body" id="body-monitoring">
+                        <p class="card-description">You can't fix what you can't see. Monitoring and observability give you real-time insights into your application's health, performance, and errors. The three pillars are: <strong>Metrics</strong>, <strong>Logs</strong>, and <strong>Traces</strong>.</p>
+                        <div class="concepts-grid">
+                            <div class="concept-item" data-concept="monitoring-pillars">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('monitoring', 'monitoring-pillars')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Three Pillars of Observability</h4>
+                                    <p><strong>Metrics</strong> = numbers over time (CPU, latency). <strong>Logs</strong> = event records. <strong>Traces</strong> = request journey across services.</p>
+                                    <div class="code-block"><pre><code>The Three Pillars:
+
+📈 METRICS (What's happening?)
+   → CPU usage, request rate, error rate
+   → Tools: Prometheus, Datadog, CloudWatch
+
+📝 LOGS (What happened?)
+   → Application logs, access logs, error logs
+   → Tools: ELK Stack, Loki, Fluentd
+
+🔗 TRACES (Where did it happen?)
+   → Follow a request across microservices
+   → Tools: Jaeger, Zipkin, OpenTelemetry</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="monitoring-prometheus">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('monitoring', 'monitoring-prometheus')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Prometheus & Grafana</h4>
+                                    <p><strong>Prometheus</strong> collects and stores metrics. <strong>Grafana</strong> visualizes them in beautiful dashboards. Together, they're the most popular open-source monitoring stack.</p>
+                                    <div class="code-block"><pre><code># prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'node-app'
+    static_configs:
+      - targets: ['app:3000']
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+# PromQL queries in Grafana:
+# Request rate:
+rate(http_requests_total[5m])
+
+# Error percentage:
+rate(http_errors_total[5m]) / rate(http_requests_total[5m]) * 100
+
+# 95th percentile latency:
+histogram_quantile(0.95, rate(http_duration_seconds_bucket[5m]))</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="monitoring-elk">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('monitoring', 'monitoring-elk')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>ELK Stack (Logging)</h4>
+                                    <p><strong>Elasticsearch</strong> stores logs, <strong>Logstash</strong> processes them, <strong>Kibana</strong> visualizes them. Modern alternative: <strong>Loki + Grafana</strong> (lighter weight).</p>
+                                    <div class="code-block"><pre><code># Structured logging in your app
+const log = {
+  level: "error",
+  message: "Payment failed",
+  service: "payment-api",
+  userId: "user-123",
+  orderId: "ord-456",
+  error: "Card declined",
+  timestamp: "2024-01-15T10:30:00Z"
+};
+
+# Fluentd config to ship logs
+<source>
+  @type tail
+  path /var/log/app/*.log
+  tag app.logs
+</source>
+
+<match app.logs>
+  @type elasticsearch
+  host elasticsearch
+  port 9200
+</match></code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="monitoring-alerting">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('monitoring', 'monitoring-alerting')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>Alerting</h4>
+                                    <p>Set up alerts to notify your team when things go wrong. Use PagerDuty, Slack, or email. Define alert thresholds based on SLOs (Service Level Objectives).</p>
+                                    <div class="code-block"><pre><code># Prometheus alerting rules
+groups:
+- name: app-alerts
+  rules:
+  - alert: HighErrorRate
+    expr: |
+      rate(http_errors_total[5m]) 
+      / rate(http_requests_total[5m]) > 0.05
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Error rate above 5%"
+
+  - alert: HighLatency
+    expr: |
+      histogram_quantile(0.95, 
+        rate(http_duration_seconds_bucket[5m])
+      ) > 2
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "P95 latency above 2s"</code></pre></div>
+                                </div>
+                            </div>
+                            <div class="concept-item" data-concept="monitoring-sre">
+                                <label class="concept-check">
+                                    <input type="checkbox" onchange="toggleConcept('monitoring', 'monitoring-sre')">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="concept-content">
+                                    <h4>SRE & On-Call Practices</h4>
+                                    <p>Site Reliability Engineering (SRE) practices: SLIs, SLOs, SLAs, error budgets, incident response, and post-mortems.</p>
+                                    <div class="code-block"><pre><code>SRE Key Concepts:
+
+SLI (Service Level Indicator)
+→ Measurable metric: "99.2% of requests < 200ms"
+
+SLO (Service Level Objective)
+→ Target: "99.9% availability per month"
+
+SLA (Service Level Agreement)
+→ Contract: "If below 99.9%, customer gets credits"
+
+Error Budget = 100% - SLO
+→ 99.9% SLO = 0.1% error budget = 43.2 min/month
+
+Incident Response:
+1. Detect (monitoring alerts)
+2. Respond (on-call engineer)
+3. Mitigate (stop the bleeding)
+4. Fix (root cause)
+5. Post-mortem (blameless review)</code></pre></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>Built with ❤️ to help you learn DevOps</p>
+            <p class="footer-tip">💡 Tip: Your progress is saved locally in your browser!</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
